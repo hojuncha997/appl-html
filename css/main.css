@@ -1,0 +1,41 @@
+/* 이런 녀석들을 selector라고 부른다.
+class는 class selector, id는 id selector
+
+우선 순위는 id > class > 태그 순으로 우선 순위가 높은 게 우선이다.
+그런데 HTML 내에서 인라인으로 style을 넣어주는 것이 가장 높다.
+즉, sytle > id> class> tag
+*/
+
+.xxx {
+    background: gray;
+}
+
+.profile {
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    color: white;
+    font-family: 'nanumsquare';
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+p {
+    /* 해당 태그 전체에 대한 스타일 */
+    text-align: center;
+    color: green;
+}
+
+.content {
+    color: red;
+}
+
+#special {
+    /* id는 보통 사용하지 않는다. */
+    text-align: center;
+    color: blue;
+}

@@ -1,0 +1,17 @@
+.xxx {
+    background: black;
+}
+
+.profile {
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    color: white;
+    font-family: 'nanumsquare';
+    letter-spacing: 0px;
+    text-align: center;
+}
