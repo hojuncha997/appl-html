@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>assign1</title>
+    <link href="./css/blog-list-answer.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="blog-content">
+            <div>
+                <img src="../../public/musk.jpg" class="blog-profile">
+                <div class="blog-name">
+                    <h4 style="margin: 8px;">이름</h4>
+                    <p style="margin: 8px;">날짜</p>
+                </div>
+            </div>
+
+            <!-- 이렇게 주면 마진이 적용되지 않는 것처럼 느껴질 수 있음. 위 요소가 float이라 그럼.-->
+            <!-- <div style="clear: both; margin-top: 20px;">  -->
+            <!-- 따라서 마진을 90px 이렇게 아예 크게 주던가 아니면 임의의 박스  <div>를 하나 더 만들고
+                거기에 clear: both;를 줘서 정상화 한 뒤, 그 아래에  <div style="clear: both; margin-top: 20px;">을 붙여서
+                    레이아웃을 만들 수 있음.-->
+
+            <!-- float를 사용한 다음에는 가상의 박스를 추가하는 방법을 자주 이용한다 -->
+            <div style="clear: both;"></div>
+
+            <div style="margin-top: 20px;">
+                <h4>블로그글</h4>
+                <p>가성비 맛집 발견</p>
+            </div>
+        </div>
+        <div class=" blog-img">
+            <img src="../../public/musk.jpg" width="100%">
+        </div>
+
+    </div>
+</body>
+
+</html>
