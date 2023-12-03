@@ -148,6 +148,9 @@
     margin: auto;
     width: 150px;
 
+    /* z-index : 겹쳤을 때의 앞에 보이는 우선순위 설정*/
+    /* z-index: 5; */
+
 }
 
 .explain-box {
@@ -161,5 +164,6 @@
     /* position 으로 띄운 뒤, top: -40px; 해서 위로올린다.*/
     position: relative;
     top: -40px;
+    /* z-index: 1; */
 
 }

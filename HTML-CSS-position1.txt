@@ -13,13 +13,20 @@
         <p class="main-content">sdfsdf</p>
         <button class="main-button">구매하기</button>
     </div>
+    <div class="explain-box">
+        <h4>How we design our shoes</h4>
+        <p>asdfasfsadfsafsdfsadfsafsasadfsafsadsafsadfsadfdsasdfsdaasdfasdfsadfsadfsad
+            asdfasfsadfsafsdfsadfsafsasadfsafsadsafsadfsadfdsasdfsdaasdfasdfsadfsadfsad
+        </p>
+    </div>
 
 </body>
 
 </html>
 
 
---------
+
+-----------------
 
 
 /* layout2 */
@@ -103,18 +110,34 @@
     화면에 고정되는 요소를 만들 때 유용하게 쓸 수 있다.*/
 
     /* 밑에서부터 0픽셀(여기서는 position:absolute기 때문에 부모박스 기준) */
-    bottom: 20px;
+    /* bottom: 20px; */
     /* 오른쪽에서부터 0px(여기서는 position:absolute기 때문에 부모박스 기준) */
-    right: 20px;
+    /* right: 20px; */
 
     /* position: absolute 준 요소를 가운데 정렬하려면,
     width는 존재하기만 하면 된다.
      */
-    /* left: 0;
+    left: 0;
     right: 0;
     margin: auto;
-    width: 150px; */
+    width: 150px;
 
+    /* z-index : 겹쳤을 때의 앞에 보이는 우선순위 설정*/
+    /* z-index: 5; */
 
+}
+
+.explain-box {
+    width: 700px;
+    margin: auto;
+    /* display: block; div가 내장하고 있으므로 생략 */
+    padding: 20px;
+    text-align: center;
+    background-color: #eee;
+    /* margin-top:-50px; 이렇게 하면 겹친다. 원하는 것이 아니다. */
+    /* position 으로 띄운 뒤, top: -40px; 해서 위로올린다.*/
+    position: relative;
+    top: -40px;
+    /* z-index: 1; */
 
 }
