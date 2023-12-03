@@ -1,0 +1,90 @@
+div {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    background-color: darkgrey;
+}
+
+
+/* 태그 중 타입에 따라 스타일 적용 */
+/* input[type=email] {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid blue;
+    border-radius: 10px;
+} */
+
+.form-container {
+    width: 700px;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-top: 50px;
+    padding: 40px;
+    font-family: Helvetica;
+    position: relative;
+
+}
+
+.form-title {
+    /* position: absolute; */
+    position: relative;
+}
+
+input {
+    padding: 10px;
+}
+
+.form-emal {
+    /* position: relative; */
+    width: 100%;
+}
+
+.input-email {
+    position: relative;
+    width: 100%;
+}
+
+.first-name-form {
+    width: 50%;
+    float: left;
+}
+
+.last-name-form {
+    width: 50%;
+    float: left;
+}
+
+.form-message {
+    width: 100%;
+}
+
+.input-message {
+    width: 100%;
+}
+
+.form-footer {
+    margin-top: 5%;
+}
+
+.input-subs-checkbox {
+    float: left;
+}
+
+.input-subs-checkbox input[type="checkbox"] {
+    margin: 0px;
+}
+
+.input-send-box {
+    float: right;
+}
+
+.input-send-box input[type="button"] {
+    background-color: #FFDB58;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

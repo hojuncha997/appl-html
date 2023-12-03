@@ -197,5 +197,19 @@ body {
     position: relative;
     top: -40px;
     /* z-index: 1; */
+}
 
+.text-input {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+/* 태그 중 타입에 따라 스타일 적용 */
+input[type=email] {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid blue;
+    border-radius: 10px;
 }
