@@ -7,8 +7,7 @@
     <link href="./css/layout2.css" rel="stylesheet">
 </head>
 
-<body>
-    sd
+<body style="margin: 0px;">
     <div class="main-background">
         <h4 class="main-title">Buy Our shoes</h4>
         <p class="main-content">sdfsdf</p>
@@ -18,8 +17,6 @@
 </body>
 
 </html>
-
-
 
 ------------
 
