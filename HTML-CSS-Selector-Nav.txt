@@ -1,0 +1,13 @@
+네비게이션 바를 만들 떄,
+
+<div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+에서 div 대신 <nav>를 써도 된다. 기능은 div와 똑같지만 좀 더 시맨틱하다.
+
+<section>과 <footer>도 마찬가지다. div와 같지만 좀 더 semantic하다.

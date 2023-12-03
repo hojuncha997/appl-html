@@ -30,3 +30,26 @@
 
     float: left;
 }
+
+/* selector 문법 중에 하나이다. 
+.navbar 내부의 모든 li태그는~~해라.(모든 자손 포함. 자식, 손자)
+
+만약 .navbar>li {} 이렇게 한다면 직계 자식. 바로 아래의 대상만 적용된다.
+
+*/
+.navbar li {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.navbar a {
+    font-size: 16px;
+    text-decoration: none;
+
+}
+
+/* 클래스를 두 개 이상 붙일 수도 있다. 띄어 쓰기 */
