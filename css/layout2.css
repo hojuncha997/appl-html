@@ -1,0 +1,116 @@
+.container {
+    width: 800px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-content {
+    width: 80%;
+    height: 200px;
+    /* background-color: #eee; */
+    float: left;
+}
+
+
+.blog-img {
+    width: 20%;
+    height: 200px;
+    /* background-color: yellow; */
+    float: left;
+}
+
+.blog-profile {
+    width: 50px;
+    display: block;
+    float: left;
+}
+
+.blog-name {
+
+    float: left;
+}
+
+/* selector 문법 중에 하나이다. 
+.navbar 내부의 모든 li태그는~~해라.(모든 자손 포함. 자식, 손자)
+
+만약 .navbar>li {} 이렇게 한다면 직계 자식. 바로 아래의 대상만 적용된다.
+
+*/
+.navbar li {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.navbar a {
+    font-size: 16px;
+    text-decoration: none;
+
+}
+
+/* 클래스를 두 개 이상 붙일 수도 있다. 띄어 쓰기 */
+
+
+/* layout2 */
+.main-background {
+    width: 100%;
+    height: 500px;
+    /* 백그라운드 넣기 */
+    background-image: url(../img/shoes.jpg);
+    /* background-image: url(../img/shoes.jpg), url(); 배경 겹치기도 가능*/
+    /* 바디 태그의 100%
+    background-size: 100%; */
+
+    /* div박스가 남아도 되니 그림이 잘리면 안됨 */
+    /* background-size: contain; */
+
+    /* 그림이 잘려도 상관 없으니 빈 공간 없이 채운다. 자주 사용 */
+    background-size: cover;
+
+    /* 이미지가 작은 경우 반복되는 것을 방지 */
+    background-repeat: no-repeat;
+
+    /* 그림이 기본적으로 왼쪽부터 채워지는데, 이걸 중앙으로 변경 */
+    background-position: center;
+
+    /* 스크롤 시 배경 위치 조정 가능 fixed는 고정 */
+    background-attachment: fixed;
+
+    /* 박스에 보정 입히기: 명도, 채도 등 필터 기능
+    문제는 내부에 사진이나 글이 있으면 전부 필터 입혀짐 */
+    filter: brightness(70%);
+
+    /* margin collapse 현상을 방지하기 위해 패딩을 넣었다. */
+    padding: 1px;
+}
+
+.main-title {
+    color: white;
+    font-size: 40px;
+    /* margin-top: 200px;
+    이렇게 margin collapse 현상이 생긴다.
+    박수 2개의 테두리가 겹치는 경우 margin도 합쳐지는 현상이다.
+    즉 여기서는 main-background까지 margin-top이 적용되는 것이다
+    
+    이게 싫으면 테두리를 겹치지 않게 하면 된다.
+    여기서는 main-background에 padding: 1px;를 넣어서 떨어뜨린다.
+    이러면 main-background div에 안쪽 여백이 생기면서 떨어지게 된다.
+    */
+}
+
+.main-content {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+.main-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 40px;
+}
