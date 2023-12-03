@@ -1,58 +1,25 @@
-.container {
-    width: 800px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+<!DOCTYPE html>
+<html>
 
-.blog-content {
-    width: 80%;
-    height: 200px;
-    /* background-color: #eee; */
-    float: left;
-}
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="./css/layout2.css" rel="stylesheet">
+</head>
+
+<body style="margin: 0px;">
+    <div class="main-background">
+        <h4 class="main-title">Buy Our shoes</h4>
+        <p class="main-content">sdfsdf</p>
+        <button class="main-button">구매하기</button>
+    </div>
+
+</body>
+
+</html>
 
 
-.blog-img {
-    width: 20%;
-    height: 200px;
-    /* background-color: yellow; */
-    float: left;
-}
-
-.blog-profile {
-    width: 50px;
-    display: block;
-    float: left;
-}
-
-.blog-name {
-
-    float: left;
-}
-
-/* selector 문법 중에 하나이다. 
-.navbar 내부의 모든 li태그는~~해라.(모든 자손 포함. 자식, 손자)
-
-만약 .navbar>li {} 이렇게 한다면 직계 자식. 바로 아래의 대상만 적용된다.
-
-*/
-.navbar li {
-    display: inline-block;
-    width: 60px;
-    text-align: center;
-    background: #eee;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.navbar a {
-    font-size: 16px;
-    text-decoration: none;
-
-}
-
-/* 클래스를 두 개 이상 붙일 수도 있다. 띄어 쓰기 */
+--------
 
 
 /* layout2 */
@@ -136,31 +103,18 @@
     화면에 고정되는 요소를 만들 때 유용하게 쓸 수 있다.*/
 
     /* 밑에서부터 0픽셀(여기서는 position:absolute기 때문에 부모박스 기준) */
-    /* bottom: 20px; */
+    bottom: 20px;
     /* 오른쪽에서부터 0px(여기서는 position:absolute기 때문에 부모박스 기준) */
-    /* right: 20px; */
+    right: 20px;
 
     /* position: absolute 준 요소를 가운데 정렬하려면,
     width는 존재하기만 하면 된다.
      */
-    left: 0;
+    /* left: 0;
     right: 0;
     margin: auto;
-    width: 150px;
+    width: 150px; */
 
-}
 
-.main-intro {
-
-    position: absolute;
-    width: 80%;
-    height: 300px;
-    background-color: #eee;
-    top: 80%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    /* padding: 40px; */
-    color: black;
 
 }
