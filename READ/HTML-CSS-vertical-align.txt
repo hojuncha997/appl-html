@@ -1,0 +1,98 @@
+vertical align 속성을 쓰면 테이블 내에 요소가 많을 때 셀 안의 요소를 상하정렬한다.
+
+용도1. "display:inline/inline-block"요소에만 사용 가능하고,
+ 요소 간의 세로정렬 시 vertical-align을 자주 사용한다.
+
+top, middle, bottom 등이 자주 사용되며, super, sub 등으로 첨자를 적용할 수도 있다.
+테이블에서는 (top, middle, bottom만 쓸 수 있다.)
+
+<div>
+    <p style="font-size: 50px">greetings<span style="font-size: 20px; vertical-align: top;">안녕</span>
+    </p>
+</div>
+
+
+display : inline 혹은 inline-block 요소들을 나란히 배치하면 상하정렬이 이상한 경우가 있다.
+특히 큰 이미지와 글, 또는 큰 글씨옆에 있는 작은 글씨
+이런걸 나란히 배치했을 때 서로 높이가 맞지 않는 경우가 많은데
+
+이럴 때 margin-top 이런거 대신 쓰는 속성이다.
+
+display:inline : 항상 옆으로 채워지는 폭과 너비가 없는 요소. 
+사용할 때마다 개행되지 않고 옆으로 붙는다. e.g. <span>
+
+
+
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="./css/cart.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <p>dddd</p>
+                        <p>dddd</p>
+                    </th>
+                    <td style="vertical-align: middle;">22222</td>
+                    <td style="vertical-align: bottom;">33333</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div>
+        <p style="font-size: 50px">greetings<span style="font-size: 20px; vertical-align: top;">안녕</span>
+        </p>
+    </div> -->
+    <div> <img src="https://mdn.mozillademos.org/files/12245/frame_image.svg" width="32" height="32"><!-- --><span
+            style="vertical-align: middle;">image with</span> adefault alignment
+    </div>
+    <span style="margin: 0px;">sdf</span>
+    <span style="margin: 0px;">sfd</span>
+
+    <!-- div로 표 만들기: 거의 사용 안 함. -->
+    <div style="display: table;">
+        <div style="display: table-row;"></div>
+        <div style="display: table-cell;">sdfdfffffffff</div>
+    </div>
+</body>
+
+</html>
+
+
+div,
+input,
+textarea {
+    box-sizing: border-box;
+
+}
+
+table {
+    /* table은 기본적으로 셀 간 간격이 존재한다. 없애려면 아래의 속성을 적어줘야 한다. */
+    border-collapse: collapse;
+}
+
+body {
+    margin: 0px;
+}
+
+th,
+td {
+    border: 1px solid black
+}

@@ -1,0 +1,393 @@
+폼태그는 입력값을 받고 서버로 보낼 때 주로 사용한다.
+<form action="경로" method="get">
+        <input type="password">
+</form>
+위와 같은 방식으로 사용되며 input 태그는 닫지 않는다.
+
+
+ <form>
+        <input type="password">
+        <input type="text" value="미리 채워진 값. 변경 가능">
+        <input type="text" placeholder="플레이스 홀더. 입력 시 사라짐">
+        <!-- name의 경우 어떤 속성에 대한 인풋인지 표기 가능. -->
+        <input type="text" name="age">
+
+        <!-- 셀렉트 박스 -->
+        <select>
+            <option>aaa</option>
+            <option>bbb</option>
+            <option>ccc</option>
+        </select>
+
+        <!-- textarea: 큰 인풋. 드래그 해서 크기 조절 가능.
+        row값을 주면 기본적으로 보여줄 줄 표시한다. -->
+        <textarea rows="10"></textarea>
+
+        <!-- 전송버튼 : 두 가지 방식으로 만들 수 있다.-->
+        <input type="submit" value="전송 버튼1">
+        <button type="submit">전송 버튼2</button>
+
+        <!-- 스타일링 -->
+        <input type="text" class="text-input">
+        <input type="email" class="text-input">
+
+
+    </form>
+
+
+    ------
+
+
+    
+.text-input {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+/* 태그 중 타입에 따라 스타일 적용 */
+input[type=email] {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid blue;
+    border-radius: 10px;
+}
+
+
+
+---------------------------과제-----------
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="./css/layout2.css" rel="stylesheet">
+</head>
+
+<body style="margin: 0px;">
+    <div class="main-background">
+        <h4 class="main-title">Buy Our shoes</h4>
+        <p class="main-content">sdfsdf</p>
+        <button class="main-button">구매하기</button>
+    </div>
+    <div class="explain-box">
+        <h4>How we design our shoes</h4>
+        <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum p>
+    </div>
+
+    <div class="form-background">
+        <div class="form-white">
+            <form>
+                <div class="w-100">
+                    <h3>Contact Us</h3>
+                    <p>Your Email</p>
+                    <input class="form-input" placeholder="Email" type="email">
+                </div>
+                <div class="w-50">
+                    <p>First Name</p>
+                    <input class="form-input" type="text">
+                </div>
+                <div class="w-50">
+                    <p>First Name</p>
+                    <input class="form-input" type="text">
+                </div>
+                <div style="clear: both;"></div>
+                <div class="w-100">
+                    <p>Message</p>
+                    <textarea class="form-input form-long"></textarea>
+                </div>
+                <div>
+                    <input id="sub" type="checkbox">
+                    <!-- label을 누르면 input을 누른 것으로 간주된다. -->
+                    <label for="sub">asdfasf</label>
+                    <button class="yellow-button">SEND</button>
+                    <div style="clear: both;"></div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+div,
+input,
+textarea {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0px;
+}
+
+.container {
+    width: 800px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-content {
+    width: 80%;
+    height: 200px;
+    /* background-color: #eee; */
+    float: left;
+}
+
+
+.blog-img {
+    width: 20%;
+    height: 200px;
+    /* background-color: yellow; */
+    float: left;
+}
+
+.blog-profile {
+    width: 50px;
+    display: block;
+    float: left;
+}
+
+.blog-name {
+
+    float: left;
+}
+
+/* selector 문법 중에 하나이다. 
+.navbar 내부의 모든 li태그는~~해라.(모든 자손 포함. 자식, 손자)
+
+만약 .navbar>li {} 이렇게 한다면 직계 자식. 바로 아래의 대상만 적용된다.
+
+*/
+.navbar li {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.navbar a {
+    font-size: 16px;
+    text-decoration: none;
+
+}
+
+/* 클래스를 두 개 이상 붙일 수도 있다. 띄어 쓰기 */
+
+
+/* layout2 */
+.main-background {
+    width: 100%;
+    height: 500px;
+    /* 백그라운드 넣기 */
+    background-image: url(../img/shoes.jpg);
+    /* background-image: url(../img/shoes.jpg), url(); 배경 겹치기도 가능*/
+    /* 바디 태그의 100%
+    background-size: 100%; */
+
+    /* div박스가 남아도 되니 그림이 잘리면 안됨 */
+    /* background-size: contain; */
+
+    /* 그림이 잘려도 상관 없으니 빈 공간 없이 채운다. 자주 사용 */
+    background-size: cover;
+
+    /* 이미지가 작은 경우 반복되는 것을 방지 */
+    background-repeat: no-repeat;
+
+    /* 그림이 기본적으로 왼쪽부터 채워지는데, 이걸 중앙으로 변경 */
+    background-position: center;
+
+    /* 스크롤 시 배경 위치 조정 가능 fixed는 고정 */
+    /* background-attachment: fixed; */
+
+    /* 박스에 보정 입히기: 명도, 채도 등 필터 기능
+    문제는 내부에 사진이나 글이 있으면 전부 필터 입혀짐 */
+    /* filter: brightness(70%); */
+
+    /* margin collapse 현상을 방지하기 위해 패딩을 넣었다. */
+    padding: 1px;
+    color: white;
+    text-align: center;
+
+    /* 이렇게 하면 자식 요소 중 position: absolute를 가진 요소가
+    이 요소를 기준으로 움직인다. */
+    position: relative;
+}
+
+.main-title {
+    color: white;
+    font-size: 40px;
+    /* margin-top: 200px;
+    이렇게 margin collapse 현상이 생긴다.
+    박수 2개의 테두리가 겹치는 경우 margin도 합쳐지는 현상이다.
+    즉 여기서는 main-background까지 margin-top이 적용되는 것이다
+    
+    이게 싫으면 테두리를 겹치지 않게 하면 된다.
+    여기서는 main-background에 padding: 1px;를 넣어서 떨어뜨린다.
+    이러면 main-background div에 안쪽 여백이 생기면서 떨어지게 된다.
+    */
+}
+
+.main-content {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+.main-button {
+
+    padding: 15px;
+    font-size: 20px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    /* position 속성을 활용한 좌표이동:display: 
+    1. 좌표 이동 기능
+    2. 공중에 뜸
+     */
+
+    /* 
+    relative: 내 원래 위치를 기준으로 사용할 것, 
+    static: 좌표이동X, 
+    fixed: 현재 화면(viewport)이 기준
+    absolute: 내 부모 중에, position: relative를 가지는 녀석을 기준으로 움직인다. */
+    position: absolute;
+    /*  position: fixed;의 경우 스크롤을 내려도 그 자리에 계속 있으므로,
+    화면에 고정되는 요소를 만들 때 유용하게 쓸 수 있다.*/
+
+    /* 밑에서부터 0픽셀(여기서는 position:absolute기 때문에 부모박스 기준) */
+    /* bottom: 20px; */
+    /* 오른쪽에서부터 0px(여기서는 position:absolute기 때문에 부모박스 기준) */
+    /* right: 20px; */
+
+    /* position: absolute 준 요소를 가운데 정렬하려면,
+    width는 존재하기만 하면 된다.
+     */
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 150px;
+
+    /* z-index : 겹쳤을 때의 앞에 보이는 우선순위 설정*/
+    /* z-index: 5; */
+
+}
+
+.explain-box {
+    /* width: 700px; */
+    width: 80%;
+    /* 최대폭. 최소는 min-width, 높이는 max-height를 사용한다. 
+    주의할 점은 width가 div 전체의 폭을 한정하지는 않는다는 것이다.
+    width는 div의 content-box 영역을 제한할 뿐이다.
+    div의 border, padding 등은 width와 상관 없이 조절할 수 있다.
+    이러면 박스 전체의 사이즈를 지정하기 어려워 진다. 따라서 이럴 때는
+    content-box 뿐만 아니라 padding, border 포함하는 설정을 사용할 수 있다.
+    
+    box-sizing: border-box; 를 사용하면 width에 padding과 border가 포함된다.
+
+    css파일 맨 위에 
+    div {box-sizing: border-box;} 
+    body {margin: 0px;}
+    이렇게 설정하고 시작하면 편하다.
+
+    참고로 브라우저마다 디자인이나 태그 설정이 다를 수 있다.
+    따라서 호환성 이슈 해결부터 해결하는 클래스를 작성해 놓고 시작한다.
+    또는 link href=""로 또 다른 CSS 파일을 만들어서 넣어도 된다.
+    normalize.css 참고: https://github.com/necolas/normalize.css/blob/master/normalize.css
+
+    */
+    max-width: 600px;
+    box-sizing: border-box;
+
+    margin: auto;
+    /* display: block; div가 내장하고 있으므로 생략 */
+    padding: 20px;
+    text-align: center;
+    background-color: #eee;
+    /* margin-top:-50px; 이렇게 하면 겹친다. 원하는 것이 아니다. */
+    /* position 으로 띄운 뒤, top: -40px; 해서 위로올린다.*/
+    position: relative;
+    top: -40px;
+    /* z-index: 1; */
+}
+
+.text-input {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+/* 태그 중 타입에 따라 스타일 적용 */
+/* input[type=email] {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid blue;
+    border-radius: 10px;
+} */
+
+
+/* contact us */
+.form-background {
+    background-color: black;
+    padding: 30px;
+}
+
+.form-white {
+    background-color: white;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-input {
+    /* 꽉차게 하려고 width를 100%로 주면 옆으로 삐져나온다.
+    이는 width가 content-box영역만 포함하기 때문이다. 때문에 실제로는 100% +20px 정도로 보인다.
+    box-sizing: border-box; 속성을 주어 width가 padding과 border를 포함하게 해야 한다.
+    근데 border-box는 다 들어가니 css파일 맨 위에 
+    input {box-sizing: border-box;}
+    textarea {box-sizing: border-box;}를 적어준다
+
+    div, input, textarea {box-sizing: border-box;} 이렇게 써도 된다.
+    
+    */
+    width: 100%;
+    /* box-sizing: border-box; */
+
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.w-100 {
+    width: 100%;
+    padding: 10px;
+}
+
+.w-50 {
+    width: 50%;
+    float: left;
+    padding: 10px;
+}
+
+.yellow-button {
+    padding: 10px;
+    /* display: block;
+    margin-left: auto; */
+    float: right;
+}

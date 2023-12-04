@@ -1,0 +1,78 @@
+div,
+input,
+textarea {
+    box-sizing: border-box;
+}
+
+
+table {
+    /* table은 기본적으로 셀 간 간격이 존재한다. 없애려면 아래의 속성을 적어줘야 한다. */
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+body {
+    margin: 0px;
+    /* background-color: skyblue; */
+}
+
+th,
+td {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.background {
+    background-color: skyblue;
+    height: 800px;
+    padding: 30px;
+
+}
+
+.cart-container {
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    /* height: 700px; */
+
+    margin: auto;
+}
+
+.wi-100per {
+    width: 100%;
+    padding: 30px;
+    /* border: solid 1px black; */
+    background-color: skyblue;
+}
+
+.table-border-div {
+    border-radius: 20px;
+}
+
+.cart-table {
+    width: 100%;
+    height: 30px;
+    /* border-radius: 5px; */
+    /* border-radius: 20px; */
+}
+
+.footer-wi-100per {
+    /* width: 50%; */
+    padding: 20px;
+    /* border: solid 1px black; */
+    float: left;
+}
+
+.pay-method-select-btn {
+    /* margin-top: 30px; */
+    padding: 20px;
+    border-radius: 5px;
+    background-color: navy;
+    color: white;
+    float: right;
+
+    vertical-align: middle;
+}

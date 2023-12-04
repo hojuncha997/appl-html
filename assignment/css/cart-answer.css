@@ -1,0 +1,116 @@
+div,
+input,
+textarea {
+    box-sizing: border-box;
+}
+
+
+table {
+    /* table은 기본적으로 셀 간 간격이 존재한다. 없애려면 아래의 속성을 적어줘야 한다. */
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+body {
+    margin: 0px;
+    /* background-color: skyblue; */
+}
+
+th,
+td {
+    /* border: 1px solid black; */
+    /* border-radius: 20px; */
+    /* background-color: white; */
+}
+
+
+
+.cart-background {
+    width: 100%;
+    background-color: #c2d3de;
+    padding: 30px;
+}
+
+.cart-table {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.cart-table td,
+.cart-table th {
+    padding: 15px;
+    border-bottom: 1px solid #c2d3de;
+}
+
+.cell-long {
+    /* td에게는 최대한 이만큼 차지하라는 뜻이다. */
+    width: 100px;
+}
+
+.cart-table th:nth-child(2) {
+    /* 테이블에 나오는 n번재 th를 선택해라 
+    이렇게 하면 클래스를 만들 필요가 없다.*/
+    width: 400px;
+}
+
+.btn {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: coral;
+    color: white;
+    /* 버튼 위에 대면 손가락 모양으로 바뀜 */
+    cursor: pointer;
+    /* 엑셀처럼 + 표시로 바뀜 */
+    /* cursor: cell; */
+}
+
+/* pseudo-class 
+이걸로 조작할 때는 :hover -> :focus -> :active 순서가 중요.
+*/
+.btn:hover {
+    /* 버튼에 마우스 올리면 바뀜 */
+    background-color: chocolate;
+}
+
+.btn:focus {
+    /* input처럼 계속 포커스 유지됨. 마우스 클릭 후 떼도 유지됨.
+    그리고 다른 곳을 클릭하면 원상복귀 */
+    background-color: grey;
+
+
+}
+
+.btn:active {
+    /* 버튼을 누르고 아직 떼지 않은 상태일 때 */
+    background-color: brown;
+    border: 2px solid black;
+}
+
+.input-test {
+    font-size: 20px;
+    border: none;
+}
+
+.input-test:focus {
+    border: 6px solid red;
+}
+
+.custom-link {
+    text-decoration: none;
+}
+
+.custom-link:link {
+    /* 방문 전 링크 설정 */
+    color: yellow;
+}
+
+.custom-link:visited {
+    /* 방문 후 링크 설정 */
+    color: black;
+}
