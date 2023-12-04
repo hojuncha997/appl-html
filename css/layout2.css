@@ -1,3 +1,33 @@
+@font-face {
+    font-family: '이쁜폰트';
+    src: url(../font/NanumSquare-master/NanumSquareR.woff);
+}
+
+
+/* 
+    폰트 회전
+p, h4, h3, h2, h1, span, button {
+    transform: rotate(50deg)
+} */
+
+
+p,
+h4,
+h3,
+h2,
+h1,
+span,
+button {
+    transform: rotate(0.03deg)
+}
+
+/* 
+@font-face {
+    font-family: '이쁜폰트';
+    font-weight: 800;
+    src: url(../font/NanumSquare-master/NanumSquareB.woff);
+} */
+
 div,
 input,
 textarea {
@@ -7,6 +37,8 @@ textarea {
 
 body {
     margin: 0px;
+    font-family: '이쁜폰트', 'arial';
+    font-weight: 800;
 }
 
 .container {

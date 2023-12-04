@@ -1,0 +1,126 @@
+폰트 넣는 법
+body에 font-family 속성을 넣어주기. 
+font-family 속성은 자동으로 inherit되기 때문에 body에 넣어주면
+전부 상속된다.
+
+body {
+    margin: 0px;
+    /* gulim이 로드에 실패하면 차례로 시도한다. */
+    font-family: 'gulim', 'dotum', 'airal';
+}
+
+그런데 설치돼 있지 않은 폰트를 보여주고자 하면 어떻게 할까?
+
+css파일의 맨 위에 아래와 같이 적어준다.
+@font-face는 준비한 폰트파일을 CSS에서 사용 가능하도록 등록하는 과정이다.
+
+@font-face {
+    font-family: '작명~~~';
+    src: url(폰트경로);
+}
+
+실예
+
+@font-face {
+    font-family: '이쁜폰트';
+    src: url(../font/NanumSquare-master/NanumSquareR.ttf);
+}
+
+
+...
+
+body {
+    margin: 0px;
+    font-family: '이쁜폰트', 'arial';
+}
+
+
+여러 개면 @font-face를 똑같이 여러 번 적어주면 된다.
+그런데 한글 폰트는 사이즈가 너무 크기 떄문에 1~ 2개만 쓰자.
+또는 웹 용으로 나온 woff를 사용하자. 용량이 더 적다.
+
+@font-face {
+    font-family: '이쁜폰트';
+    src: url(../font/NanumSquare-master/NanumSquareR.woff);
+}
+
+폰트를 굵게 하려면 아래와 같이 font-weight를 100~900까지 줄 수 있음.
+
+body {
+    margin: 0px;
+    font-family: '이쁜폰트', 'arial';
+    font-weight: 900;
+}
+
+그런데 이렇게 하면 폰트가 이상해지는 경우가 있다.
+원래는 폰트를 굵게 쓰려면 NanumSquareB.woff와 같은 굵은 폰트를 쓰고,
+굵기를 적용해 줘야 한다.
+
+@font-face {
+    font-family: '이쁜폰트';
+    src: url(../font/NanumSquare-master/NanumSquareR.woff);
+}
+
+@font-face {
+    font-family: '이쁜폰트';
+
+    font-weight: 800;
+    src: url(../font/NanumSquare-master/NanumSquareB.woff);
+}
+
+body {
+    margin: 0px;
+    font-family: '이쁜폰트', 'arial';
+
+    font-weight: 800;
+}
+
+예전 IE버전에서는 폰트가 호환되지 않아 아래와 같이 사용하는 경우도 있었다.
+@font-face { 
+  font-family: 'NanumSquare'; 
+  font-weight: 400; 
+  src: url(NanumSquareR.eot); 
+  src: url(NanumSquareR.eot?#iefix) format('embedded-opentype'), 
+      url(NanumSquareR.woff) format('woff'), 
+      url(NanumSquareR.ttf) format('truetype'); 
+}
+
+
+!!!!!!!!!!!!!!
+
+그런데 이렇게 폰트를 직접 쓰는 것이 부담스럽다면,
+Google Fonts를 사용하는 방법이 있다.
+이걸 사용하면 우리가 제공하는 사이트에서 폰트를 제공하는 것이 아니라,
+구글 사이트에서 폰트 파일을 호스팅 해준다. 따라서 트래픽/로딩 시간을 절약할 수 있다.
+
+https://fonts.google.com
+
+HTML에 직접 <link>를 사용해서 넣어줄 수도 있고,
+CSS파일에 넣어주고 싶으면 @import를 사용할 수도 있다.
+
+
+!!!!!!!!!!
+gulim고 같은 폰트를 사용할 때 확대하면 깨져보이는 듯한 느낌을 받을 때가 있다.
+이럴 때는 폰트를 회전시키면 부드럽게 보인다.
+
+p, h4, h3, h2, h1, span, button {
+    transform: rotate(50deg)
+}
+
+
+/* 
+    폰트 회전
+p, h4, h3, h2, h1, span, button {
+    transform: rotate(50deg)
+} */
+
+
+p,
+h4,
+h3,
+h2,
+h1,
+span,
+button {
+    transform: rotate(0.03deg)
+}
