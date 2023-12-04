@@ -76,3 +76,29 @@ td {
 
     vertical-align: middle;
 }
+
+
+
+/* OOCSS(Object Oriented CSS) 방식 */
+/* 바뀌지 않을 녀석을 선언하고 */
+.main-btn {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 바뀔 녀석(유틸리티 클래스)을 따로 설정하여 적용시에 붙여 준다
+e.g. <button class="main-button bg-red font-small">
+*/
+.bg-red {
+    background-color: red;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+.font-small {
+    font-size: 5px;
+}
