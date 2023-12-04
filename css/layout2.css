@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap'); */
+
 @font-face {
     font-family: '이쁜폰트';
     src: url(../font/NanumSquare-master/NanumSquareR.woff);
@@ -38,8 +40,35 @@ textarea {
 body {
     margin: 0px;
     font-family: '이쁜폰트', 'arial';
+    /* font-family: 'Noto Serif KR', serif;  구글 웹폰트*/
     font-weight: 800;
 }
+
+
+.nav-container {
+    /* 감싸고 있는 하위 요소들을 가로로 배치한다. */
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding: 10px;
+    background-color: coral;
+    color: white;
+
+
+}
+
+.nav-item {
+    margin-right: 10px;
+
+}
+
+
+
+
+
+
+
+
 
 .container {
     width: 800px;
