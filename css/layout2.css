@@ -62,14 +62,6 @@ body {
 
 }
 
-
-
-
-
-
-
-
-
 .container {
     width: 800px;
     display: block;
@@ -168,7 +160,7 @@ body {
 
 .main-title {
     color: white;
-    font-size: 40px;
+    font-size: 50px;
     /* margin-top: 200px;
     이렇게 margin collapse 현상이 생긴다.
     박수 2개의 테두리가 겹치는 경우 margin도 합쳐지는 현상이다.
@@ -183,7 +175,7 @@ body {
 .main-content {
     color: white;
     text-align: center;
-    font-size: 30px;
+    font-size: 16px;
 }
 
 .main-button {
@@ -329,4 +321,24 @@ body {
     /* display: block;
     margin-left: auto; */
     float: right;
+}
+
+/* 미디어 쿼리 문법 설정(css파일 최하단) */
+/* 반응형 웹 용 스타일링: 브레이크 포인트 설정 */
+@media screen and (max-width: 1200px) {
+    .main-title {
+        /* 1200px 이하에선 아래 속성 추가.  밑에 있는 코드 우선 설정 */
+        font-size: 30px;
+    }
+
+    .nav-item {
+        font-size: 12px;
+    }
+}
+
+/* 여러 개 설정 가능 */
+@media screen and (max-width: 768px) {
+    .main-title {
+        font-size: 20px;
+    }
 }
