@@ -1,0 +1,87 @@
+div,
+p,
+h4 {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: gray;
+
+}
+
+.flex-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: pink;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    /* flex-direction: column; */
+
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-sub {
+    display: flex;
+}
+
+.flex-item {
+    border: solid 1px black;
+    /* margin: 1vw; */
+    /* margin-top: 3vh; */
+    text-align: center;
+    margin: 2vw;
+
+}
+
+.flex-item p {
+    width: 15vw;
+    margin-top: -2vh;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+@media screen and (max-width: 1000px) {
+    .flex-container {
+        background-color: blue;
+        /* flex-wrap: wrap; */
+        color: white;
+        flex-direction: column;
+    }
+
+    /* 
+    .flex-sub {
+        color: white;
+        flex-direction: row;
+    } */
+
+    .flex-item {
+        font-size: 2vh;
+        border: solid 1px white;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .flex-container {
+        background-color: yellow;
+        color: red;
+        flex-direction: column;
+    }
+
+    .flex-sub {
+        flex-direction: column;
+    }
+
+    .flex-item {
+        font-size: 1.3vh;
+        color: red;
+        border: solid 1px red;
+    }
+}
