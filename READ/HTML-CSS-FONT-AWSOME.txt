@@ -1,0 +1,72 @@
+font-awsome 라이브러리를 설치하면 아이콘들을 글자처럼 쉽게 넣을 수 있다.
+
+설치 방식은 두 가지다.
+
+1. CDN 방식Content Delivery Network(헤드 태그에 추가 )
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awsome/5.15.4/css/all.min.css"/>
+</head>
+이러면 해당 사이트에서 폰트 파일을 호스팅 해준다.
+
+간편하고 빠르다. 그러나 해당 사이트가 다운되면 사용하지 못한다.
+
+
+
+2. 다운로드 해서 직접 제공하기
+
+Free For Web 버전으로 받는다.
+
+<link href="님 작업폴더에 있는 all.min.css 파일 경로" rel="stylesheet">
+<link href="/fontawsome/css/all.min.css" rel="stylesheet">
+
+다운 받은 후 압축 풀고 css와 webfonts 폴더 빼고는 다 지워도 된다.
+css 폴더에는 all.css와 all.min.css만 남겨놔도 된다.
+
+webfonts 폴더에 아이콘 폰트 파일이 있다.
+.woff2 파일위주로 사용한다. 따라서 전체 용량은 100KB정도 된다.
+
+
+
+사용
+//참고로 fa-3x는 3배 사이즈
+
+<div class="product-container">
+        <div>
+            <i class="fas fa-shopping-cart fa-3x"></i>
+            <h4>Fast shipping</h4>
+            <p>lorem ipsum</p>
+        </div>
+        <div>
+            <i class="fas fa-shipping-fast fa-3x"></i>
+            <h4>Good Service</h4>
+            <p>lorem ipsum</p>
+        </div>
+        <div>
+            <i class="fas fa-ticket-alt fa-3x"></i>
+            <h4>Free Coupons</h4>
+            <p>lorem ipsum</p>
+        </div>
+        <div>
+            <i class="fas fa-boxes fa-3x"></i>
+            <h4>New Products</h4>
+            <p>lorem ipsum</p>
+        </div>
+
+
+
+        ----
+        //css
+
+
+ /* fontawsome 원형 아이콘 설정 */
+
+.product-container i {
+    background-color: burlywood;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    padding-top: 25px;
+    box-sizing: border-box;
+    color: white;
+    margin-top: 20px;
+}
