@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+
+/* @font-face {
+    font-family: '이쁜폰트';
+    src: url(../font/NanumSquare-master/NanumSquareR.woff);
+} */
+
+
+/* 
+    폰트 회전
+p, h4, h3, h2, h1, span, button {
+    transform: rotate(50deg)
+} */
+
+
+p,
+h4,
+h3,
+h2,
+h1,
+span,
+button {
+    transform: rotate(0.03deg)
+}
+
+/* 
+@font-face {
+    font-family: '이쁜폰트';
+    font-weight: 800;
+    src: url(../font/NanumSquare-master/NanumSquareB.woff);
+} */
+
+div,
+input,
+textarea {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0px;
+    /* font-family: '이쁜폰트', 'arial'; */
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 800;
+}
+
+
+
+
+
+
+.product-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* border: solid 1px black; */
+}
+
+.product-container div {
+    float: left;
+    width: 25%;
+    text-align: center;
+    border: solid 1px black;
+}
+
+
+
+
+/* 미디어 쿼리 문법 설정(css파일 최하단) */
+/* 반응형 웹 용 스타일링: 브레이크 포인트 설정 */
+@media screen and (max-width: 1200px) {
+    .main-title {
+        /* 1200px 이하에선 아래 속성 추가.  밑에 있는 코드 우선 설정 */
+        font-size: 30px;
+    }
+
+    .nav-item {
+        font-size: 12px;
+    }
+
+    .product-container {
+        max-width: 600px;
+
+    }
+
+    .product-container div {
+        width: 50%;
+
+    }
+
+    /* 여러 개 설정 가능 */
+    @media screen and (max-width: 768px) {
+        .main-title {
+            font-size: 20px;
+        }
+
+
+        .product-container div {
+            width: 100%;
+
+        }
+
+    }
+}
