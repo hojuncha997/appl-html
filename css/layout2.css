@@ -355,6 +355,58 @@ body {
 
 
 
+.shop-bg {
+    background-color: #eee;
+    padding: 20px;
+}
+
+.shop-container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.shop-item {
+    width: 33%;
+    padding: 10px;
+}
+
+.shop-item img {
+    width: 100%;
+    /* 보통 보이지 않는 선이 있는데, 이걸 없애기 위해 display:block을 준다 */
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* 
+    background-color: black;
+    opacity: 0.5; 이렇게 해도 되지만 아래처럼 원래의 스타일을 반투명하게 해도 좋다. 
+    */
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+
+    /* transition 추가*/
+    /* 위에 있는 설정할 스타일이 변하게  되면 1초에 걸쳐 변한다.
+    */
+    /* 정확하게는 아래 표현이 맞다.
+    transition: opacity 1s; */
+
+    transition: all 1s;
+
+    /* 이걸 주면 트랜지션이 변하는 시간을 세밀히 조정할 수 있다. */
+    /* transition-timing-function: cubic-bezier(1, -0.08, .95, .49); */
+
+
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+
 /* 미디어 쿼리 문법 설정(css파일 최하단) */
 /* 반응형 웹 용 스타일링: 브레이크 포인트 설정 */
 @media screen and (max-width: 1200px) {

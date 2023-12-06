@@ -1,0 +1,222 @@
+one-way 애니메이션 만드는 step
+
+1. 시작 스타일 만들기
+2. 최종 스타일 만들기
+3. 어떤 상황에서 최종 스타일로 변하는 건지?(trigger)
+4. transition으로 애니메이션 적용
+
+--
+
+먼저 최종 스타일을 만든다.
+
+
+-예시-
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 반응형 웹 용 코드추가 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link href="../css/transition.css" rel="stylesheet">
+    <link href="../../fontawsome/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="shop-bg">
+        <div class="shop-container">
+            <div class="shop-item">
+                <div style="position: relative;">
+                    <!-- overlay에 position:absolute를 주려면 그 위에 relative가 있어야 한다. -->
+                    <div class="overlay-wrap">
+                        <div class="overlay-black">
+                            <span>$60</span>
+                        </div>
+                    </div>
+                    <img src="../../img/product1-1.jpg">
+
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="../../img/product2-1.jpg">
+            </div>
+            <div class="shop-item">
+                <img src="../../img/product3-1.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+------
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap'); */
+
+@font-face {
+    font-family: '이쁜폰트';
+    src: url(../font/NanumSquare-master/NanumSquareR.woff);
+}
+
+
+/* 
+    폰트 회전
+p, h4, h3, h2, h1, span, button {
+    transform: rotate(50deg)
+} */
+
+
+p,
+h4,
+h3,
+h2,
+h1,
+span,
+button {
+    transform: rotate(0.03deg)
+}
+
+/* 
+@font-face {
+    font-family: '이쁜폰트';
+    font-weight: 800;
+    src: url(../font/NanumSquare-master/NanumSquareB.woff);
+} */
+
+div,
+input,
+textarea {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0px;
+    font-family: '이쁜폰트', 'arial';
+    /* font-family: 'Noto Serif KR', serif;  구글 웹폰트*/
+    font-weight: 800;
+}
+
+
+.shop-bg {
+    background-color: #eee;
+    padding: 20px;
+}
+
+.shop-container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.shop-item {
+    width: 33%;
+    padding: 10px;
+}
+
+.shop-item img {
+    width: 100%;
+    /* 보통 보이지 않는 선이 있는데, 이걸 없애기 위해 display:block을 준다 */
+    display: block;
+}
+
+.overlay-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.overlay-black {
+    /* 감싸고 있는 때문에 wrap에 주었기 때문에 무의미*/
+    /* position: absolute; */
+    width: 100%;
+    height: 50%;
+    background-color: #eee;
+    margin-top: 100%;
+
+    /* height: 0%; */
+    /* 
+    background-color: black;
+    opacity: 0.5; 이렇게 해도 되지만 아래처럼 원래의 스타일을 반투명하게 해도 좋다. 
+    */
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+
+    /* transition 추가*/
+    /* 위에 있는 설정할 스타일이 변하게  되면 1초에 걸쳐 변한다.
+    */
+    /* 정확하게는 아래 표현이 맞다.
+    transition: opacity 1s; */
+
+    transition: all 1s;
+
+    /* 이걸 주면 트랜지션이 변하는 시간을 세밀히 조정할 수 있다. */
+    /* transition-timing-function: cubic-bezier(1, -0.08, .95, .49); */
+}
+
+
+
+.overlay-wrap:hover .overlay-black {
+    opacity: 1;
+    margin-top: 50%;
+
+}
+
+/* overlay-black에 직접 주면 커서를 만났을 때 움직임이 이상해짐.
+그리고 아래에서 위로 올라오는 애니메이션 하기 불가능해짐.
+따라서 overlay-wrapper로 한 번 감싸고, position:absolute로 준 뒤에,(주지 않으면 올라오지 않는다)
+overay-black에 있던 position:absolute를 없앤다.(있어도 상관 없지만 무의미)
+
+그리고 overlay-wrapper에 호버 했을 때,
+overlay-black을 위에서 아래로 누르고 있던
+margin-top:100%;를 margin-top:50%;으로 바꿔서 50퍼센트를 올라오게 한다.
+
+또한 overlay-wrapper에 overflow: hidden을 넣어서 overlay-wrapper르 넘어가는 것들을 숨기면,
+애니메이션이 깔끔해진다.
+
+*/
+
+
+
+/* 미디어 쿼리 문법 설정(css파일 최하단) */
+/* 반응형 웹 용 스타일링: 브레이크 포인트 설정 */
+@media screen and (max-width: 1200px) {
+    .main-title {
+        /* 1200px 이하에선 아래 속성 추가.  밑에 있는 코드 우선 설정 */
+        font-size: 30px;
+    }
+
+    .nav-item {
+        font-size: 12px;
+    }
+
+    .product-container {
+        max-width: 600px;
+
+    }
+
+    .product-container div {
+        width: 50%;
+
+    }
+
+    /* 여러 개 설정 가능 */
+    @media screen and (max-width: 768px) {
+        .main-title {
+            font-size: 20px;
+        }
+
+
+        .product-container div {
+            width: 100%;
+
+        }
+
+    }
+}
