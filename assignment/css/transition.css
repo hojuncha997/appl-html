@@ -116,6 +116,8 @@ body {
 따라서 overlay-wrapper로 한 번 감싸고, position:absolute로 준 뒤에,(주지 않으면 올라오지 않는다)
 overay-black에 있던 position:absolute를 없앤다.(있어도 상관 없지만 무의미)
 
+overlay-wrapper와 overlay-black과 img를 감싸고 있는 div는 position:relative이다.
+
 그리고 overlay-wrapper에 호버 했을 때,
 overlay-black을 위에서 아래로 누르고 있던
 margin-top:100%;를 margin-top:50%;으로 바꿔서 50퍼센트를 올라오게 한다.
