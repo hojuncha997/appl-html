@@ -4,7 +4,81 @@
 
 css는 head에, js는 body 안에 <script> 만들고 거기에 넣는다.
 
+<!-- head 태그 안에 CSS 첨부 -->
+<link href="bootstrap.min.css 경로" rel="stylesheet">
+
+<!-- body 태그 끝나기 직전에 js 첨부 -->
+<script src="bootstrap.어쩌구.js 경로"></script>
+
+
+
 부트스트랩 홈페이지에서 필요한 컴포넌트 가져와서 붙여 넣고 쓴다.
 이런 녀석들의 스타일링을 고치고 싶으면 class 선언해서 수정해 주면 된다.
 
 혹은 부트스트랩에서 만들어 놓은 유틸리티 클래스 예) mt-3, pt-3 등을 넣어서 써도 된다.
+
+
+
+예시)
+
+    <div class="container p-5">
+        <!-- utility 클래스를 사용한 것.. 클래스를 덧붙인 뒤 css파일에서 해당 클래스를 설정해 줄 수도 있다.-->
+        <div class="card shadow">
+            <img src="img/shoes.jpg" class="card-img-top" alt="..." width="600px">
+            <div class="card-body">
+                <span class="badge rounded-pill bg-primary">Primary</span>
+                <h5 class="mt-2">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                <!-- 밑에 media obejct -->
+                <div class="d-flex p-3">
+                    <div class="flex-shrink-0">
+                        <img src="img/shoes.jpg" width="50px">
+                    </div>
+                    <div class="flex-grow-1 ms-3 mt-1">
+                        <h6 class="fw-bold mb-0">Kelly Rowan</h6>
+                        <p class="text-muted"> March 12, 2021, 6 min read</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+
+
+
+--
+
+부트스트랩을 사용하면 반응형 레이아웃을 만들 때 매우 편리하다.
+
+예를 들어 container라는 클래스 명은 여백을 예쁘게 잡아주는 클래스 명이다.
+모바일 환경에서는 여백을 거의 없이 만들어준다.
+
+row라는 녀석은 균일하게 박스를 쪼개는 클래스명이다.
+row라는 클래스 안에 col이라는 클래스를 가진 요소를 만들어서꾸미면,
+균일한 간격을 만들어서 구성한다. flexbox라고 생각하면 된다.
+만약 정확히 쪼개고 가로로 쪼개고 싶으면 col-차지할 크기를 설정한다.
+
+총 12이므로, col-6이면 절반, col-4면 1/3이다.
+
+
+ <!-- 반응형 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">안녕하세요</div>
+            <div class="col-md-6">안녕하세요</div>
+        </div>
+    </div>
+
+
+만약 위와 같이 적용한다면, 조건식 md(768px) 사이즈 이상에서만 적용해달라는 뜻이다.
+따라서 모바일 사이즈로 작아지면, 양분할 되지 않고 쌓이게 된다.
+
+부트스트랩 사이트에서 grid system을 검색해 보면 알 수 있다.
+
+grid만 쓸 수 있는 저용량 js도 있다.
+
+bootstrap 사용 시는 모바일 화면 먼저 개발하는 것이 편하다.
