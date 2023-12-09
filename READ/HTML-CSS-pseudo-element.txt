@@ -1,0 +1,162 @@
+
+ 
+
+내가 특정 HTML 요소의 안쪽 일부만 스타일을 주고 싶을 때
+
+Pseudo-element 셀렉터를 이용해서 스타일을 줄 수 있습니다.
+
+예를 들면 이런 것들이 가능합니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pseudo-element로 HTML 특정부분에 스타일링하기/글씨넣기
+
+ 
+
+.text::first-letter {
+  color : red;
+}
+
+.text::first-line {
+  color : red;
+}
+
+.text::after {
+  content : '뻥이지롱';
+  color : red;
+}
+
+.text::before {
+  content : '뻥이지롱';
+  color : red;
+}
+ 
+
+1. pseudo-element를 선택하려면 콜론 2개 :: 를 사용하면 됩니다. 
+
+2. ::first-letter라고 붙이면 안에 있는 글자 중 첫 글자만 스타일을 줄 수 있습니다.
+
+3. ::first-line이라고 붙이면 안에 있는 글자 중 첫 줄만 스타일을 줄 수 있습니다.
+
+4. ::after라고 붙이면 내부의 맨 마지막 부분에 특정 글자같은걸 추가해줄 수 있습니다.
+
+5. ::before라고 붙이면 내부의 맨 앞 부분에 특정 글자같은걸 추가해줄 수 있습니다.
+
+ 
+
+ 
+
+"first-letter 대신 그냥 첫 글자를 span태그로 감싸면 되지않나요?"
+
+그래도 되겠지만 서버와 데이터베이스로 인해 글자가 항상 다이나믹하게 변하는 경우 항상 span태그를 넣기 불가능합니다.
+
+(자바스크립트를 쓰면 되는데 귀찮습니다.)
+
+그럴 때 사용하시면 되겠습니다. 
+
+실은 크게 쓸모는 없습니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pseudo-element로 clear : both 박스 편하게 만들기
+
+ 
+
+.box::after {
+  content : '';
+  display : block;
+  clear : both;
+}
+
+갑자기 어떤 요소 뒤에 clear : both 속성을 가진 div박스가 필요하다면
+
+일부러 div를 하나 만들 필요 없이 이렇게 div를 흉내내서 사용하시면 되겠습니다.
+
+content 안에 아무것도 안적은 후 display : block을 주면 div 비슷한게 하나 생성되니까요. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pseudo-element를 활용하면
+
+ 
+
+- CSS 만으로 버튼에 마우스 올리면 배경 어둡게하기 https://codepen.io/css-tricks/pen/dxyfA
+
+- CSS만으로 3D 느낌 리본모양만들기 https://codepen.io/team/css-tricks/pen/mVZGKa
+
+- ol 태그의 숫자 스타일링하기 https://www.456bereastreet.com/archive/201105/styling_ordered_list_numbers/
+
+- table 반응형으로 만드는 여러가지 방법 https://css-tricks.com/responsive-data-tables/
+
+ 
+
+ 
+
+등이 가능합니다. 대부분 약간 쓸데없습니다.
+
+다만 다음 시간에 배울 shadow DOM을 위해 꼭 알고 지나가야하니
+
+내부에 있는 pseudo-element를 스타일줄 땐 :: 를 이용한다는 사실을 까먹지 맙시다.
+
+ 
+
+ ------------------
+
+ <div style="clear: both; float:none"><div> 이걸 쓰지 않고,
+
+ .product-container::after {
+    content: '';
+    display:block;
+    clear: both;
+    float:none;
+ }
+
+ 이렇게도 가능하다.
+
+
+ 
+    <!-- 파일업로드 + pseudo-element:왜냐하면 이건 style=""로 스타일 변경이 되지 않음 
+    "파일이 선택되지 않음." 이런 메시지도 옆에 자동으로 생기는데, 이렇게 숨겨진
+DOM을 조작, styling하기 위해 pseudo-element가 사용됨-->
+    
+    <input type="file" class="input-file">
+
+    
+/* input type="file"에 대한 pseudo-element 사용 */
+.input-file::file-selector-button {
+    background-color: skyblue;
+    border: none;
+    padding: 20px;
+}
+/* 거기에 다시 pseudo-class 사용 */
+.input-file::file-selector-button:hover {
+    background-color: blue;
+    border: none;
+}
+

@@ -32,11 +32,16 @@
     </div>
     <div class="explain-box">
         <h4>How we design our shoes</h4>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde modi dolor quis, quisquam eaque quod placeat
+        <!-- pseudo-element 사용 -->
+        <p class="pseudo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde modi dolor quis, quisquam eaque quod placeat
             laboriosam voluptatum, dolores iusto temporibus nemo expedita voluptatem inventore magni quibusdam adipisci
             provident nobis?</p>
     </div>
 
+    <!-- 파일업로드 + pseudo-element:왜냐하면 이건 style=""로 스타일 변경이 되지 않음 
+    "파일이 선택되지 않음." 이런 메시지도 옆에 자동으로 생기는데, 이렇게 숨겨진
+DOM을 조작, styling하기 위해 pseudo-element가 사용됨-->
+    <input type="file" class="input-file">
 
     <div class="product-container">
         <div>
@@ -59,7 +64,7 @@
             <h4>New Products</h4>
             <p>lorem ipsum</p>
         </div>
-        <div style="float: none; clear: both;"></div>
+        <!-- <div style="float: none; clear: both;"></div> -->
         <!-- 하지만 언제나 class를 줘서 셀렉트 하는게 좋다. -->
     </div>
 
