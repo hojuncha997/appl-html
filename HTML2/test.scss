@@ -1,17 +1,22 @@
-// $변수명: 데이터;
-$main-color: #2a4cb2;
-$sub-color: #eeeeee;
-$basic-size: 16px;
+@use './reset';
 
-.background {
-    background-color: $main-color;
-    // font-size: $basic-size - 2px;
-    font-size: ($basic-size / 2px);
-}
 
-.box {
-    color: $main-color;
-    font-size: $basic-size + 2px;
+@mixin font-style($fontSize, $letterSpacing) {
+    font-size: $fontSize;
+    letter-spacing: $letterSpacing;
 }
 
 
+h2 {
+    @include font-style(30px, -2px)
+}
+h3 {
+    @include font-style(20px, -3px);
+    color: reset.$main-color;
+}
+h4 {
+    @include font-style(10px, -4px)
+}
+
+// 비슷한 걸 축약하려면, @extend를 써도 되지만 @mixin을 써도 된다.
+// 안에 있는 긴 코드를 @mixin명(함수명)으로 축약해달라는 뜻이다.

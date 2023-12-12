@@ -1,0 +1,117 @@
+
+1. @mixin
+
+@mixin은 함수와 유사하다. $파라미터를 넣어서
+긴 코드를 가변적으로 만들 때 사용한다.
+아래와 같은 코드가 있을 때,
+
+
+h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+h3 {
+    font-size: 20px;
+    letter-spacing: -1px;
+}
+h4 {
+    font-size: 10px;
+    letter-spacing: -1px;
+}
+
+
+
+// 비슷한 걸 축약하려면, @extend를 써도 되지만 @mixin을 써도 된다.
+// 안에 있는 긴 코드를 @mixin명(함수명)으로 축약해달라는 뜻이다.
+
+@mixin font-style($fontSize, $letterSpacing) {
+    font-size: $fontSize;
+    letter-spacing: $letterSpacing;
+}
+
+
+h2 {
+    @include font-style(30px, -2px)
+}
+h3 {
+    @include font-style(20px, -3px)
+}
+h4 {
+    @include font-style(10px, -4px)
+}
+
+만약 속석 명에 파라미터를 넣고 싶으면 아래와 같이 해야 한다.
+
+@mixin font-style($fontSize, $letterSpacing) {
+    // 글자 중간에 변수를 넣는 문법
+    #{$fontSize}: 10px;
+    letter-spacing: $letterSpacing;
+}
+
+
+
+------
+
+2. @use 문법
+
+다른 파일에 있는 내용을 가져오고 싶을 때 사용한다.
+@import 와 유사하다.
+예를 들어 reset.scss라는 파일을 만들고 아래 내용을 입력한다.
+
+// reset.scss
+body {
+    margin: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+그리고 test.scss에서 가져온다.
+
+@use './reset.scss';
+
+이렇게 하면 test.css에 reset.scss 파일의 내용이 가져와진다.
+그런데 reset.scss파일의 내용은 사실 별도로 컴파일 될 필요가 없다.
+따라서 컴파일 되지 않도록 아래와 같이 
+
+_파일명.scss로 작명하면 컴파일 되지 않는다.
+
+==> _reset.scss로 변경한다.
+
+
+
+만약 _reset.scss에 변수라든지 @mixin이 있었다면
+$main-color: brown;
+
+아래와 같이 사용할 수 있다.
+
+파일명.$변수명
+@include 파일명.mixin명()
+
+
+@use './reset';
+
+
+@mixin font-style($fontSize, $letterSpacing) {
+    font-size: $fontSize;
+    letter-spacing: $letterSpacing;
+}
+
+
+h2 {
+    @include font-style(30px, -2px)
+}
+h3 {
+    @include font-style(20px, -3px);
+    color: reset.$main-color;
+    border-color: reset.mixin명();
+}
+h4 {
+    @include font-style(10px, -4px)
+}
+
+
+---
+
+function, if, for 기능도 있는데, 거의 쓰지 않는다.

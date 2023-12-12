@@ -1,0 +1,108 @@
+.scss와 .sass의 차이
+
+.sass 파일은 sass 문법 사용이 가능한데, 괄호 안써도 된다.
+인덴테이션 방식으로 사용할 수 있다. 
+
+.box 
+    font-size : 16px;
+
+.main-bg 
+    color : red
+
+.sass와 .scss 둘 중 택 일 하면 된다.
+그러나 기존 css와 유사한 scss 권장.
+
+--
+
+1. nesting 문법
+
+.main-bg h4 {
+    font-size: 16px;
+}
+.main-bg button {
+    color: red;
+}
+
+이를 네스팅 문법으로 표현하면 아래와 같다.
+
+.main-bg {
+    h4 {
+        font-size: 16px;
+    }
+    button {
+        color: red;
+    }
+}
+
+이렇게 하면 관련있는 class들을 관리하기 편하다.
+네스팅 내에 네스팅을 중첩할 수 있으나 복잡해지므로 권장하지 않는다.
+
+
+--
+2. @extend 문법
+
+만약 버튼을 여러 개 만들어야 한다면,
+.btn-green {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    color: green;
+}
+
+이렇게 하고 -green만 변경해줄 것이다.
+이런 경우 중복이 발생한다.
+이걸 변수로 치환해서 사용하며 된다.
+임시 클래스를 만들어서 공통된 속성을 합친다.
+
+%btn {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+}
+
+그리고 이걸 아래와 같이 사용할 수 있다.
+
+.btn-green {
+    @extend %btn;
+    color: green;
+}
+
+참고로 임시 클래스가 아니라 일반 클래스도 @extend를 사용할 수 있다.
+
+btn {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+}
+.btn-blue {
+    @extend btn;
+    color: blue;
+}
+
+그러나 임시 클래스는 단독으로 css로 컴파일 되지 않는다.
+임시 클래스는 반드시 다른 클래스에 종속될 때만 컴파일 된다.
+
+
+
+%div {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+}
+
+.div-green {
+    @extend %div;
+    background-color: green;
+}
+.div-red {
+    @extend %div;
+    background-color: red;
+}
+.div-blue {
+    @extend %div;
+    background-color: blue;
+}
+
+
+
+
