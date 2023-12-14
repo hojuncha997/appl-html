@@ -1,0 +1,461 @@
+display:grid를 쓰면 레이아웃 구성을 더 쉽게 할 수 있다.
+모눈종이에 색칠을 하는 걸로 생각하면 쉽다. 좀 더 직관적이다.
+
+인터넷 익스플로러에서는 쓸 수 없다.
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/grid.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+
+</html>
+
+---
+.grid-container {
+    /* 자식 요소들이 격자가 된다 */
+    display: grid;
+
+    /* 열 */
+    /* fr 단위(fraction: 전체 폭에 대한 배수)로 폭지정 가능하다.  */
+    grid-template-columns: 1fr 1fr 1fr;
+
+    /* 행 */
+    /* grid-template-rows: 100px 100px; 마찬가지로 fr로 지정 가능하지만 height 속성이 있어야 한다.*/
+    grid-template-rows: 1fr 1fr;
+    height: 300px;
+
+    /* 격자 사이 간격 띄우기 */
+    grid-gap: 10px;
+
+}
+
+.grid-container div {
+    border: 1px solid black;
+}
+
+
+
+그리드를 이용해 레이아웃을 만드는 방법에는 두 가지가 있다.
+옵션 1. 내부 박스 크기 조절
+옵션 2. 그냥 부모 건드리기
+
+1. 내부 박스 크기 조절
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/grid.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-nav"></div>
+        <div class="grid-sidebar"></div>
+        <div class="grid-content"></div>
+
+        <!-- <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div> -->
+    </div>
+
+</body>
+
+</html>
+
+
+----
+
+.grid-container {
+    /* 자식 요소들이 격자가 된다 */
+    display: grid;
+
+    /* 열 */
+    /* fr 단위(fraction: 전체 폭에 대한 배수)로 폭지정 가능하다.  */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: 100px 100px 100px 100px;
+
+    /* 행 */
+    /* grid-template-rows: 100px 100px; 마찬가지로 fr로 지정 가능하지만 height 속성이 있어야 한다.*/
+    /* grid-template-rows: 1fr 1fr; */
+    /* height: 300px; */
+    grid-template-rows: 100px 100px 100px;
+
+    /* 격자 사이 간격 띄우기 */
+    /* grid-gap: 10px; */
+
+
+
+}
+
+.grid-container div {
+    border: 1px solid black;
+}
+
+.grid-nav {
+    /* grid-column 속성은 display:grid의 자식들에만 사용가능한 속성이다. */
+    /* 아래의 의미는 해당 클래스의 격자가 그리드 열의 1~4까지 차지하게 해달라는 뜻이다. */
+    grid-column: 1/5;
+
+    /* 그리드 행의 1~3까지 차지하라는 뜻이다  */
+    /* grid-row: 1/3; */
+}
+
+.grid-sidebar {
+    /* 그리드 row의 2~4까지 차지 */
+    grid-row: 2/5;
+}
+
+.grid-content {
+    grid-column: 2/5;
+    grid-row: 2/4;
+}
+----------------------
+
+2. 부모 요소 조작하기(자식에 이름쓰고 부모에 색칠하기)
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/grid.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-nav"></div>
+        <div class="grid-sidebar"></div>
+        <div class="grid-content"></div>
+
+        <!-- <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div> -->
+    </div>
+
+</body>
+
+</html>
+
+--
+
+.grid-container {
+    /* 자식 요소들이 격자가 된다 */
+    display: grid;
+
+    /* 열 */
+    /* fr 단위(fraction: 전체 폭에 대한 배수)로 폭지정 가능하다.  */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: 100px 100px 100px 100px;
+
+    /* 행 */
+    /* grid-template-rows: 100px 100px; 마찬가지로 fr로 지정 가능하지만 height 속성이 있어야 한다.*/
+    /* grid-template-rows: 1fr 1fr; */
+    /* height: 300px; */
+    grid-template-rows: 100px 100px 100px;
+
+    /* 격자 사이 간격 띄우기 */
+    /* grid-gap: 10px; */
+
+    /* grid-area 속성 사용해서 레이아웃 하기 */
+    grid-template-areas:
+
+        /* "header header header header"
+        "side ... ... ..."
+        "side ... ... ..." */
+        /* 참고로 정확히 사각형만 된다. 테트리스 같이 되지 않는다. */
+
+        "header header header header"
+        "side content content content"
+        "side content content content"
+}
+
+.grid-container div {
+    border: 1px solid black;
+}
+
+.grid-nav {
+    /* grid-area라는 속성은 이름을 부여하는 속성이다. */
+    grid-area: header;
+}
+
+.grid-sidebar {
+    grid-area: side;
+}
+
+.grid-content {
+    grid-area: content;
+}
+
+
+
+
+---------------------------------------------
+
+
+Grid 레이아웃 호환성
+
+ 
+
+IE 10 이상에서 동작한다고 나와있으나 표준 문법이 아닌 옛날 문법으로 작성해야 동작합니다.
+
+그래서 IE에서는 불가능하고 Edge 포함 기타 최신 브라우저에서 사용가능한 속성이라 보시면 됩니다.
+
+CSS 속성의 브라우저 호환성에 대한 정보는 caniuse.com에서 검색해보는게 정확합니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+간단한 Grid 레이아웃 만들기 
+
+ 
+
+Grid 레이아웃은 말그대로 격자를 만드는 레이아웃입니다. 
+
+ 
+
+<div class="grid-container">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100px 100px 100px;
+  grid-gap: 10px;
+}
+ 
+
+부모<div>에 display : grid를 주면 자식 <div>들은 전부 격자처럼 진열됩니다. 
+
+grid-template-columns는 격자의 열 너비와 갯수
+
+grid-template-rows는 격자의 행 높이와 갯수를 설정하는 속성입니다.
+
+fr이라는 단위는 몇배만큼 차지할지를 나타내는 값입니다.
+
+그런데 격자를 왜 만드냐고요? 격자 그려놓으면 레이아웃 만들기 편해질 수 있으니까요. 
+
+grid로 레이아웃 만드는 법은 두개가 있습니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Grid로 레이아웃 만드는 법 1. 자식 div 높이와 폭을 조정하기 
+
+ 
+
+첫째 방법은 직접 자식에게 명령을 주어
+
+몇 칸을 차지할지를 정해주는 겁니다. 
+
+ 
+
+<div class="grid-container">
+    <div class="grid-nav">헤더</div>
+    <div class="grid-sidebar">사이드바</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+.grid-nav {
+  grid-column : 1 / 4;
+  grid-row : 2 / 4;
+}
+자식 div박스 한개를 조금 크게 키우고 싶다면,
+
+자식이 몇개의 컬럼과 row를 차지할지 표시해주시면 됩니다. 
+
+ 
+
+grid-column은 몇개의 컬럼을 차지할지
+
+grid-row는 몇개의 row를 차지할지 설정해주는 속성입니다.
+
+grid-column : 1 / 4 라고 쓰시면 1부터 4까지를 다 차지해라~ 라는 명령인데
+
+1부터 4가 뭔소리냐면
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+grid-column : 1 / 4 여기서의 숫자는
+
+grid의 column에 존재하는 세로선들을 의미합니다.
+
+왼쪽 세로선부터 1,2,3 ...이라고 생각하면 됩니다.
+
+ 
+
+그럼 grid-column : 1 / 4 이건 세로선 1부터 4까지 차지하라는 말입니다.
+
+그래서 박스가 사진처럼 저렇게 늘어납니다.
+
+grid-row도 비슷하게 동작합니다. 가로선에 번호매겨 생각하면 됩니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Grid로 레이아웃 만드는 법 2. 자식에게 이름쓰고 부모가 배치하기 
+
+ 
+
+약간 더 직관적인 방법입니다. 
+
+자식에 이름을 써놓고 부모가 자식을 자유롭게 배치할 수 있습니다. 
+
+ 
+
+<div class="grid-container">
+    <div class="grid-nav">헤더</div>
+    <div class="grid-sidebar">사이드바</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+.grid-nav {
+  grid-area: 헤더;
+}
+
+.grid-sidebar {
+  grid-area: 사이드;
+}
+ 
+
+grid-area라는 속성을 이용해 자식에게 '헤더' 와 '사이드' 라는 멋진 이름을 붙여줍니다. 
+
+▼ 그리고 부모에게 이런 속성을 하나 추가해줍니다. 
+
+ 
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100px 100px 100px;
+  grid-gap: 10px;
+  grid-template-areas: 
+    "헤더 헤더 헤더 헤더"
+    "사이드 사이드 . ."
+    "사이드 사이드 . ."
+}
+ 
+
+grid-template-areas라는 속성이 있는데 이건 뭐냐면
+
+자식중에 '헤더'라는 이름을 가진 애가 있다면 첫 행에 저렇게 4칸을 차지하게 해주시고
+
+자식중에 '사이드바'라는 애가 있으면 둘째 행에 저렇게 2칸을 차지하게 하고
+
+셋째 행 2칸도 차지하게 해주세요
+
+라고 명령내리는 속성입니다.
+
+ 
+
+ 
+
+그럼 이렇게 멋진 박스들이 탄생합니다.
+
+ 
+
+
+
+ 
+
+자식에 미리 이름을 써놓고
+
+헤더라는 애는 몇칸을 차지할지 명령만 주면 되니까
+
+애들 색칠공부하듯 쉽게 레이아웃을 잡을 수 있습니다.
+
+ 
+
+근데 큰 레이아웃을 잡을 때보다는 
+
+자잘한 부분에서 엑셀같은 격자가 필요할 때 쓰면 효과적입니다. 
+
+ 
+
+ 
