@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.header-container {
+    border: solid 1px black;
+}
+
+.nav-container {
+    border: solid 1px black;
+    width: 20%;
+    height: 400px;
+    float: left;
+}
+
+.content-container {
+    border: solid 1px black;
+    width: 75%;
+    height: 400px;
+    float: left;
+    margin-left: 10px;
+
+}
+
+.footer-container {
+    border: solid 1px black;
+}
+
+.mt {
+    margin-top: 10px;
+}
