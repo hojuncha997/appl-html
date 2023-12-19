@@ -1,0 +1,26 @@
+.grey {
+    background-color: lightgray;
+    height: 2000px;
+    margin-top: 500px;
+}
+
+.image {
+    float: right;
+    width: 400px;
+    /* 스크롤 중간에 멈추도록 position:sticky를 준다.
+    position:fixed(뷰포트에 이미지 고정) 와 유사하다.
+    sticky는 조건부로 고정이 된다. 여기서는 스크롤 하다가 이 그림을 만났을 때 발동된다.
+    그리고 스크롤이 끝나서 부모 div 박스를 넘어갔을 때 해제된다. 가변적 fixed라고 생각해도 된다.
+
+    스크롤 하다가 그림이 바뀐다든지 하는 것은 JS로 구현하면 된다.
+    몇백 픽셀 정도 움직였다면 점차 이미지를 조정하도록 짜는 것이다. 크기 조절도 마찬가지다.
+    */
+    position: sticky;
+    /* 상단 어디에 멈출 건지 정해준다. */
+    top: 100px;
+}
+
+.text {
+    float: left;
+    width: 300px;
+}

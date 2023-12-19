@@ -1,0 +1,47 @@
+.grid-container {
+    /* 자식 요소들이 격자가 된다 */
+    display: grid;
+
+    /* 열 */
+    /* fr 단위(fraction: 전체 폭에 대한 배수)로 폭지정 가능하다.  */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: 100px 100px 100px 100px;
+
+    /* 행 */
+    /* grid-template-rows: 100px 100px; 마찬가지로 fr로 지정 가능하지만 height 속성이 있어야 한다.*/
+    /* grid-template-rows: 1fr 1fr; */
+    /* height: 300px; */
+    grid-template-rows: 100px 100px 100px;
+
+    /* 격자 사이 간격 띄우기 */
+    /* grid-gap: 10px; */
+
+    /* grid-area 속성 사용해서 레이아웃 하기 */
+    grid-template-areas:
+
+        /* "header header header header"
+        "side ... ... ..."
+        "side ... ... ..." */
+        /* 참고로 정확히 사각형만 된다. 테트리스 같이 되지 않는다. */
+
+        "header header header header"
+        "side content content content"
+        "side content content content"
+}
+
+.grid-container div {
+    border: 1px solid black;
+}
+
+.grid-nav {
+    /* grid-area라는 속성은 이름을 부여하는 속성이다. */
+    grid-area: header;
+}
+
+.grid-sidebar {
+    grid-area: side;
+}
+
+.grid-content {
+    grid-area: content;
+}

@@ -257,6 +257,7 @@ body {
     top: -40px;
     /* z-index: 1; */
 }
+
 /* pseudo-element 사용 */
 .pseudo::first-letter {
     color: red;
@@ -337,6 +338,7 @@ body {
     border: none;
     padding: 20px;
 }
+
 /* 거기에 다시 pseudo-class 사용 */
 .input-file::file-selector-button:hover {
     background-color: blue;
@@ -353,12 +355,13 @@ input[type="range"] {
     /* 브라우저 기본 css 안보이게 설정 */
     appearance: none;
 }
+
 input[type="range"]::-webkit-slider-thumb {
     /* 브라우저 기본 css 안보이게 설정 */
     appearance: none;
     background-color: red;
     width: 50px;
-    height:50px;
+    height: 50px;
 }
 
 .product-container {
@@ -390,10 +393,10 @@ input[type="range"]::-webkit-slider-thumb {
 /* <div style="clear: both; float:none"><div> 대신 사용 */
 .product-container::after {
     content: '';
-    display:block;
+    display: block;
     clear: both;
-    float:none;
- }
+    float: none;
+}
 
 
 
@@ -461,6 +464,50 @@ input[type="range"]::-webkit-slider-thumb {
     /* transition-timing-function: cubic-bezier(1, -0.08, .95, .49); */
 
 
+}
+
+
+/* transform 애니메이션 */
+.ani-text {
+
+    /* transform: rotate(-10deg); 회전 */
+    /* transform: translateX(300px); x축으로 이동. margin-left와 같지만 좀 더 부드러운 효과가 가능하다 */
+    /* transform: translateY(30px);y축으로 이동. */
+    /* transform: scale(0.5);    크기 변화 */
+    text-align: center;
+}
+
+.ani-text:hover {
+    animation-name: left-right;
+    animation-duration: 1s;
+    /* animation-delay: 딜레이의 양;
+    animation-iteration-count: 몇 번 반복?;
+    animation-timing-function:  베지어:처음에 빨리 혹은 나중에 빨리. 역방향; */
+
+}
+
+/* 복잡한 애니메이션 정의는 keyframes 사용. 애니메이션 임의의 진행도에 따라
+css 상태를 설정할 수 있다. 중복 선언도 가능*/
+@keyframes left-right {
+    0% {
+        /* 처음엔 제자리 */
+        transform: translateX(0px);
+    }
+
+    50% {
+        /* 중간엔 왼쪽으로 100px */
+        transform: translateX(-100px);
+    }
+
+    75% {
+        /* 다시 돌아온 다음 오른쪽으로 100px */
+        transform: translateX(100px);
+    }
+
+    100% {
+        /* 다시 원점으로 */
+        transform: translateX(0px);
+    }
 }
 
 
